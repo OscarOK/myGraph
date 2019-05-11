@@ -51,7 +51,9 @@ export class HomePage {
             container: document.getElementById('cy'),
 
             layout: {
-                name: 'circle',
+                name: 'grid',
+                rows: 2,
+                cols: 2
             },
 
             style: [
@@ -147,6 +149,18 @@ export class HomePage {
             }
         });
 
-        //        var eh = cy.edgehandles();
+        var eh = this.cy.edgehandles();
+        /*
+        document.querySelector('#draw-on').addEventListener('click', function() {
+          eh.enableDrawMode();
+        });
+
+        document.querySelector('#draw-off').addEventListener('click', function() {
+          eh.disableDrawMode();
+      });
+
+        document.querySelector('#start').addEventListener('click', function() {
+          eh.start( cy.$('node:selected') );
+      });*/
     }
 }
