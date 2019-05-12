@@ -14,6 +14,9 @@ export class AddNodePage implements OnInit {
 
     constructor(private modalController: ModalController, private toastController: ToastController) { }
 
+    ngOnInit() {
+    }
+
     async presentToast(message: string) {
         const toast = await this.toastController.create({
             message: message,
