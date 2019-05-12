@@ -26,9 +26,6 @@ export class AddNodePage implements OnInit {
         this.modalController.dismiss(null, undefined);
     }
 
-    ngOnInit() {
-    }
-
     sendNodeInfo() {
         let addNodeNameMsg = "Please add the name of the node";
         let addNodeWeight = "Please add the weight of the node";
@@ -42,9 +39,8 @@ export class AddNodePage implements OnInit {
                 id: this.nodeName,
                 name: this.nodeName,
                 data: { weight: +this.nodeWeight },
-                position: { x: 300, y: 300 }
+                position: { x: 0, y: 0 }
             };
-            console.log(this.nodeName, this.nodeWeight);
 
             this.modalController.dismiss(data);
         }

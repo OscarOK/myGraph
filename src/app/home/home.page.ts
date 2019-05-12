@@ -38,18 +38,14 @@ export class HomePage {
 
         if (nodeData.data != null) {
             this.cy.add(nodeData);
+            this.cy.fit();
+            let elements = this.cy.nodes();
+            console.log(elements);
         }
-        /*
-        this.cy.add({
-            group: 'nodes',
-            data: { weight: 75 },
-            position: { x: 200, y: 200 }
-        });
-        //this.presentPopover();*/
     }
 
     deleteNode() {
-        let noneSelectedMsg = "Please, select a node or edge.";
+        let noneSelectedMsg = "Please select a node or edge.";
         let deletedMsg = "Element removed successfully.";
         let element = this.cy.$(':selected');
 
@@ -62,6 +58,10 @@ export class HomePage {
     }
 
     ionViewWillEnter() {
+        this.setupGraph();
+    }
+
+    setupGraph() {
         this.cy = cytoscape({
             container: document.getElementById('cy'),
 
