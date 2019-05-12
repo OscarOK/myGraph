@@ -6,18 +6,25 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 
+import { AddNodePage } from '../add-node/add-node.page';
+import { AddNodePageModule } from '../add-node/add-node.module';
+
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ])
-  ],
-  declarations: [HomePage]
+    entryComponents: [
+        AddNodePage
+    ],
+    imports: [
+        AddNodePageModule,
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: HomePage
+            }
+        ])
+    ],
+    declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule { }

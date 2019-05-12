@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-import { PopoverController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import cytoscape from 'cytoscape';
 import edgehandles from 'cytoscape-edgehandles';
+
+import { AddNodePage } from '../add-node/add-node.page';
 
 cytoscape.use(edgehandles);
 
@@ -14,7 +16,7 @@ cytoscape.use(edgehandles);
 export class HomePage {
     cy;
 
-    constructor(public toastController: ToastController, public popoverController: PopoverController) { }
+    constructor(public toastController: ToastController, public modalController: ModalController) { }
 
     async presentToast(message: string) {
         const toast = await this.toastController.create({
@@ -24,13 +26,26 @@ export class HomePage {
         toast.present();
     }
 
-    addNode() {
+    async addNode() {
+        const modal = await this.modalController.create({
+            component: AddNodePage
+        });
+
+        await modal.present();
+
+        const nodeData = await modal.onDidDismiss();
+        console.log(nodeData);
+
+        if (nodeData.data != null) {
+            this.cy.add(nodeData);
+        }
+        /*
         this.cy.add({
             group: 'nodes',
             data: { weight: 75 },
             position: { x: 200, y: 200 }
         });
-        //this.presentPopover();
+        //this.presentPopover();*/
     }
 
     deleteNode() {

@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>AddNode</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="close()">CLOSE</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-input placeholder="Node name" type="text" [(ngModel)]="nodeName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-input placeholder="Node weight" type="number" [(ngModel)]="nodeWeight"></ion-input>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+        <ion-fab-button (click)="sendNodeInfo()">
+            <ion-icon name="checkmark"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>
